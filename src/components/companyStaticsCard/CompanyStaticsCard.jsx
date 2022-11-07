@@ -37,6 +37,7 @@ const StyledCompanyStaticsCard = styled.div`
 
   @media (max-width: 500px) {
     padding: 20px;
+    justify-content: center;
     width: 162px;
     gap: 6px;
     border-radius: 16px;
@@ -49,10 +50,30 @@ const StyledCompanyStaticsCard = styled.div`
       font-size: 14px;
     }
   }
-  
-  @media (max-width: 350px) {
-    padding: 12px;
+
+  @media (max-width: 402px) {
+    width: 150px;
+    justify-content: center;
     gap: 4px;
     border-radius: 16px;
+
+    h1 {
+      width: max-content;
+      font-size: 26px;
+    }
+
+    p {
+      width: max-content;
+      font-size: 12px;
+    }
+  }
+
+  @media (max-width: 380px) {
+    width: 120px;
+
+    h1,
+    p {
+      max-width: 90px;
+    }
   }
 `;

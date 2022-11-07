@@ -10,7 +10,7 @@ export default function HomeSelect() {
 
   return (
     <StyledHomeSelect>
-      <h1>Выберите квартиру</h1>
+      <h1 className="head-title">Выберите квартиру</h1>
       <div className="select__wrapper">
         <div>
           <p>Вид жилища</p>

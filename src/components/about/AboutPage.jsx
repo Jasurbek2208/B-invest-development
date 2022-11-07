@@ -14,7 +14,7 @@ export default function AboutPage() {
 
   return (
     <StyledAboutPage>
-      <h1>О нашей компании</h1>
+      <h1 className="head-title">О нашей компании</h1>
       <div className="content__wrapper">
         <div className="top">
           <CompanyStaticsCard h1="125+" p="Проданных домов" />
@@ -46,7 +46,7 @@ export default function AboutPage() {
 
       {/* aksiyalar */}
       <div className="stocks__wrapper">
-        <h1>Акции</h1>
+        <h1 className="head-title">Акции</h1>
         <div className="content__wrapper">
           <div className="left">
             <div
@@ -181,8 +181,8 @@ const StyledAboutPage = styled.div`
 
     .content__wrapper {
       display: flex;
-      flex-wrap: wrap;
       justify-content: center;
+      flex-wrap: wrap;
       gap: 30px;
 
       .card {
@@ -221,9 +221,11 @@ const StyledAboutPage = styled.div`
       }
 
       .left {
+        width: max-content;
+
         & > .card {
           padding-bottom: 570px;
-          min-width: 450px;
+          min-width: 440px;
 
           h5 {
             max-width: 347px;
@@ -240,10 +242,11 @@ const StyledAboutPage = styled.div`
         justify-content: center;
         flex-wrap: wrap;
         gap: 30px;
+        width: 760px;
 
         .card-form {
-          max-width: 750px;
-          width: 90%;
+          max-width: 740px;
+          width: 100%;
 
           h5 {
             min-width: max-content;

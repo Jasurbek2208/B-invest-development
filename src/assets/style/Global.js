@@ -22,4 +22,19 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0px 16px;
     max-width: 1280px;
 }
+
+
+@media (max-width: 500px) {
+    .head-title {
+      font-weight: 600 !important;
+      font-size: 34px !important;
+    }
+  }
+
+  @media (max-width: 380px) {
+    .head-title {
+      font-weight: 600 !important;
+      font-size: 24px !important;
+    }
+  }
 `

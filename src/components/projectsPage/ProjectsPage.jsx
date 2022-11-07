@@ -11,7 +11,7 @@ import img2 from "../../assets/img/img2.png";
 export default function ProjectsPage() {
   return (
     <StyledProjectsPage>
-      <h1>Наши проекты</h1>
+      <h1 className="head-title">Наши проекты</h1>
       <div className="content__wrapper">
         <ProjectCard
           img1={img2}
