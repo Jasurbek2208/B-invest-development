@@ -33,10 +33,9 @@ export default function AboutPage() {
             className="video"
             src="https://www.youtube.com/embed/vJz8QzO1VzQ"
             title="YouTube video player"
-            frameborder="0"
+            frameBorder="0"
             allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            onPlay={isPlay}
-            allowfullscreen
+            allowFullScreen
           ></iframe>
           <div className="video-play" onClick={() => setIsPlay((p) => !p)}>
             <div className="icon videoPlay"></div>

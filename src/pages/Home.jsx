@@ -7,6 +7,8 @@ import Header from "../components/header/Header";
 import HomeSelect from "../components/choiseKvartira/HomeSelect";
 import ProjectsPage from "../components/projectsPage/ProjectsPage";
 import AboutPage from "../components/about/AboutPage";
+import NewsPage from "../components/newsPage/NewsPage";
+import MapLocation from "../components/mapLocation/MapLocation";
 
 export default function Home() {
   return (
@@ -19,6 +21,8 @@ export default function Home() {
         <HomeSelect />
         <ProjectsPage />
         <AboutPage />
+        <NewsPage />
+        <MapLocation />
       </div>
     </StyledHomePage>
   );

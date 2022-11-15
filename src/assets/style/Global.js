@@ -23,6 +23,14 @@ export const GlobalStyle = createGlobalStyle`
     max-width: 1280px;
 }
 
+.head-title {
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 120%;
+    letter-spacing: -0.04em;
+    color: #402E32;
+}
+
 
 @media (max-width: 500px) {
     .head-title {
