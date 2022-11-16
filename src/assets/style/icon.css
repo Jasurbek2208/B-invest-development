@@ -47,3 +47,21 @@
   mask-image: url("../icons/tgBorder.svg");
   -webkit-mask-image: url("../icons/tgBorder.svg");
 }
+
+.icon.icon-instagram {
+  background: #402e32;
+  mask-image: url("../icons/instagram.svg");
+  -webkit-mask-image: url("../icons/instagram.svg");
+}
+
+.icon.icon-facebook {
+  background: #402e32;
+  mask-image: url("../icons/facebook.svg");
+  -webkit-mask-image: url("../icons/facebook.svg");
+}
+
+.icon.icon-telegram {
+  background: #402e32;
+  mask-image: url("../icons/telegram-footer.svg");
+  -webkit-mask-image: url("../icons/telegram-footer.svg");
+}

@@ -31,6 +31,34 @@ export const GlobalStyle = createGlobalStyle`
     color: #402E32;
 }
 
+.tel {
+      display: flex;
+      flex-direction: column;
+
+      p {
+        text-align: right;
+        font-size: 18px;
+        line-height: 25px;
+        color: #402e32;
+      }
+
+      a {
+        text-align: right;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 120%;
+        letter-spacing: -0.04em;
+        color: #d7b56d;
+        margin-bottom: 2px;
+
+        &:hover,
+        &:focus {
+          margin-bottom: 1px;
+          outline: none;
+          border-bottom: 1px solid #d7b56d;
+        }
+      }
+    }
 
 @media (max-width: 500px) {
     .head-title {

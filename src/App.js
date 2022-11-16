@@ -5,7 +5,7 @@ import { GlobalStyle } from './assets/style/Global';
 
 function App() {
   return (
-    <div style={{ backgroundColor: "#F5F5F7" }}>
+    <div style={{ paddingBottom: "30px", backgroundColor: "#F5F5F7" }}>
       <GlobalStyle />
       <Home />
     </div>

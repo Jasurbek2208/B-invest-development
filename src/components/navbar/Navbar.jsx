@@ -60,35 +60,6 @@ const StyledNavbar = styled.nav`
     display: flex;
     align-items: center;
     gap: 60px;
-
-    .tel {
-      display: flex;
-      flex-direction: column;
-
-      p {
-        text-align: right;
-        font-size: 18px;
-        line-height: 25px;
-        color: #402e32;
-      }
-
-      a {
-        text-align: right;
-        font-weight: 600;
-        font-size: 14px;
-        line-height: 120%;
-        letter-spacing: -0.04em;
-        color: #d7b56d;
-        margin-bottom: 2px;
-
-        &:hover,
-        &:focus {
-          margin-bottom: 1px;
-          outline: none;
-          border-bottom: 1px solid #d7b56d;
-        }
-      }
-    }
   }
 
   .btn-menu {

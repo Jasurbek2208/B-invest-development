@@ -54,7 +54,7 @@ export default function FAQ() {
 }
 
 const StyledFAQ = styled.section`
-  margin: 120px 30px;
+  margin: 120px 0px 30px;
   padding: 30px;
   border-radius: 40px;
   background-size: cover;
@@ -79,7 +79,7 @@ const StyledFAQ = styled.section`
 
     .input__wrapper,
     .select__wrapper {
-      width: 258px !important;
+      width: 273px !important;
     }
   }
 `;
