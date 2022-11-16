@@ -12,32 +12,24 @@ export default function HomeSelect() {
     <StyledHomeSelect>
       <h1 className="head-title">Выберите квартиру</h1>
       <div className="select__wrapper">
-        <div>
-          <p>Вид жилища</p>
-          <Select bg={true} list={list1} />
-        </div>
-        <div>
-          <p>Категория жилищ</p>
-          <Select bg={true} list={list2} />
-        </div>
-        <div>
-          <p>Площадь</p>
-          <InputRange
-            list={[
-              { min: 30, name: "м2" },
-              { max: 100, name: "м2" },
-            ]}
-          />
-        </div>
-        <div>
-          <p>Цена</p>
-          <InputRange
-            list={[
-              { min: 500, name: "млн" },
-              { max: 1000, name: "млрд" },
-            ]}
-          />
-        </div>
+        <Select labelColor label="Вид жилища" bg={true} list={list1} />
+        <Select labelColor label="Категория жилищ" bg={true} list={list2} />
+        <InputRange
+          labelColor
+          label="Площадь"
+          list={[
+            { min: 30, name: "м2" },
+            { max: 100, name: "м2" },
+          ]}
+        />
+        <InputRange
+          labelColor
+          label="Цена"
+          list={[
+            { min: 500, name: "млн" },
+            { max: 1000, name: "млрд" },
+          ]}
+        />
         <Button style="15px 42px" bg={true}>
           Поиск
         </Button>

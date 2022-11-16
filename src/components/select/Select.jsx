@@ -1,9 +1,27 @@
 import React from "react";
 import styled from "styled-components";
 
-export default function Select({ bg, list }) {
+export default function Select({ label, labelColor, bg, list, lang = false }) {
   return (
-    <div style={{ position: "relative" }}>
+    <div
+      style={{
+        position: "relative",
+        display: "flex",
+        flexDirection: "column",
+        gap: "6px",
+      }}
+    >
+      <label
+        htmlFor=""
+        style={{
+          color: labelColor ? "#402E32" : "#fff",
+          fontWeight: 400,
+          fontSize: "16px",
+          lineHeight: "22px",
+        }}
+      >
+        {label}
+      </label>
       <StyledSelect className={bg ? "back" : ""}>
         <option disabled value="">
           Tanlang
@@ -18,7 +36,7 @@ export default function Select({ bg, list }) {
         style={{
           cursor: "pointer",
           position: "absolute",
-          top: "50%",
+          top: `${lang ? "50%" : "65%"}`,
           right: `${bg ? "24px" : "8px"}`,
           translate: "0% -50%",
           width: "9px",
@@ -35,7 +53,7 @@ const StyledSelect = styled.select`
   padding: 5px;
   position: relative;
   cursor: pointer;
-  width: 60px;
+  width: 100%;
   border: none;
   border-radius: 12px;
   -webkit-appearance: none;

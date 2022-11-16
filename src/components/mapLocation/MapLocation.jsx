@@ -2,14 +2,14 @@ import React from "react";
 import styled from "styled-components";
 
 // Google Map
-// import Map from "./Map";
+import Map from "./Map";
 
 export default function MapLocation() {
   return (
     <StyledMapLocation>
       <h1 className="head-title">Наши дома на карте</h1>
       <div className="map-location__wrapper">
-        {/* <Map /> */}
+        <Map />
       </div>
     </StyledMapLocation>
   );
@@ -17,7 +17,7 @@ export default function MapLocation() {
 
 const StyledMapLocation = styled.div`
   h1 {
-    margin-top: 120px;
+    margin: 120px 0px 30px;
   }
 
   .map-location__wrapper {
@@ -26,5 +26,17 @@ const StyledMapLocation = styled.div`
     height: auto;
     border-radius: 40px;
     background: #fff;
+  }
+
+  @media (max-width: 700px) {
+    .map-location__wrapper {
+      padding: 30px;
+    }
+  }
+
+  @media (max-width: 700px) {
+    .map-location__wrapper {
+      padding: 0px;
+    }
   }
 `;

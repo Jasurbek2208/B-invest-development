@@ -18,7 +18,7 @@ export default function Navbar() {
         <li className="list">О нас</li>
       </ul>
       <div className="right__wrapper">
-        <Select list={list} />
+        <Select lang list={list} />
         <div className="tel">
           <p>+ 998 (71) 671-2275</p>
           <a href="tel:+ 998 (71) 671-2275">Заказать звонок</a>

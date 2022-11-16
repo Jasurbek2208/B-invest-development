@@ -9,6 +9,7 @@ import ProjectsPage from "../components/projectsPage/ProjectsPage";
 import AboutPage from "../components/about/AboutPage";
 import NewsPage from "../components/newsPage/NewsPage";
 import MapLocation from "../components/mapLocation/MapLocation";
+import FAQ from "../components/faq/FAQ";
 
 export default function Home() {
   return (
@@ -23,6 +24,7 @@ export default function Home() {
         <AboutPage />
         <NewsPage />
         <MapLocation />
+        <FAQ />
       </div>
     </StyledHomePage>
   );

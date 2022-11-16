@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
-export default function InputRange({ list }) {
+export default function InputRange({ label, labelColor, list }) {
   const [firstRangeValue, setFirstRangeValue] = useState(list[0].min);
   const [secondRangeValue, setSecondRangeValue] = useState(list[1].max);
 
@@ -16,6 +16,17 @@ export default function InputRange({ list }) {
 
   return (
     <StyledInputRange>
+      <label
+        htmlFor=""
+        style={{
+          color: labelColor ? "#402E32" : "#fff",
+          fontWeight: 400,
+          fontSize: "16px",
+          lineHeight: "22px",
+        }}
+      >
+        {label}
+      </label>
       <output className="rangevalue__wrapper">
         <p>
           От{" "}

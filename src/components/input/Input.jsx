@@ -1,10 +1,18 @@
 import React from "react";
 import styled from "styled-components";
 
-export default function Input({ label, type = "text", onChange, placeholder }) {
+export default function Input({
+  label,
+  labelColor,
+  type = "text",
+  onChange,
+  placeholder,
+}) {
   return (
     <StyledInput>
-      <label htmlFor="">{label}</label>
+      <label htmlFor="" style={{ color: labelColor ? "#402E32" : "#fff" }}>
+        {label}
+      </label>
       <input type={type} onChange={onChange} placeholder={placeholder} />
     </StyledInput>
   );
@@ -19,7 +27,6 @@ const StyledInput = styled.div`
     font-weight: 400;
     font-size: 16px;
     line-height: 22px;
-    color: #fff;
   }
 
   input {
