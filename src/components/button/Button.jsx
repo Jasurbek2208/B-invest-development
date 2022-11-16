@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export default function Button({ children, width, bg = false, style = "" }) {
   return (
-    <StyledButton className={bg ? "on" : "off"} style={{ padding: style }}>
+    <StyledButton className={bg ? "on" : "off"} style={{ width: `${width ? width : "auto"}`, padding: style }}>
       {children}
     </StyledButton>
   );

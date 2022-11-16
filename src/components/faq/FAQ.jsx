@@ -13,6 +13,7 @@ export default function FAQ() {
   return (
     <StyledFAQ
       style={{
+        backgroundColor: "#fff",
         background: `url(${FAQ_IMG})`,
       }}
     >
@@ -45,9 +46,11 @@ export default function FAQ() {
             list={["Ближайшее", "От 9:00 До 18:00", "В любое время"]}
           />
         </div>
-        <Button style="17px 33px" bg={true}>
-          Отправить
-        </Button>
+        <div className="button__wrapper">
+          <Button width="100%" style="17px 33px" bg={true}>
+            Отправить
+          </Button>
+        </div>
       </form>
     </StyledFAQ>
   );
@@ -57,8 +60,8 @@ const StyledFAQ = styled.section`
   margin: 120px 0px 30px;
   padding: 30px;
   border-radius: 40px;
-  background-size: cover;
-  background-position: center;
+  background-size: cover !important;
+  background-position: center !important;
   background-repeat: no-repeat;
 
   p {
@@ -80,6 +83,24 @@ const StyledFAQ = styled.section`
     .input__wrapper,
     .select__wrapper {
       width: 273px !important;
+    }
+
+    .button__wrapper {
+      width: 160px;
+    }
+  }
+
+  @media (max-width: 685px) {
+    .faq-form__wrapper {
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+
+      .input__wrapper,
+      .select__wrapper,
+      .button__wrapper {
+        width: 100% !important;
+      }
     }
   }
 `;
