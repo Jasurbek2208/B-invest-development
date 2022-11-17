@@ -1,14 +1,16 @@
 import React from 'react';
-import Home from "./pages/Home";
-
+import { BrowserRouter } from "react-router-dom"
+import Router from './router/Router';
 import { GlobalStyle } from './assets/style/Global';
 
 function App() {
   return (
-    <div style={{ paddingBottom: "30px", backgroundColor: "#F5F5F7" }}>
-      <GlobalStyle />
-      <Home />
-    </div>
+    <BrowserRouter>
+      <div style={{ backgroundColor: "#F5F5F7" }}>
+        <GlobalStyle />
+        <Router />
+      </div>
+    </BrowserRouter>
   );
 }
 

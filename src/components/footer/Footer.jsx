@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 // Images
@@ -9,7 +10,9 @@ export default function Footer() {
   return (
     <StyledFooter>
       <div className="left">
-        <img src={logo} alt={logo} />
+        <Link to="home">
+          <img src={logo} alt={logo} />
+        </Link>
         <p>
           2022 ООО "B-Invest". Информация на сайте представлена в информационных
           целях. Свяжитесь с менеджерами компании для получения более конкретной
