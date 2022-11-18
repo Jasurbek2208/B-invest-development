@@ -26,6 +26,7 @@ export default function FAQ() {
         <div className="input__wrapper">
           <Input
             labelColor
+            type="tel"
             label="Ваш телефон"
             placeholder="+998 (__)___-____"
           />

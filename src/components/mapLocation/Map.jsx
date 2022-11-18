@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 
-export default function () {
+export default function Map({ mobile }) {
   return (
-    <StyledMapp>
+    <StyledMapp className={mobile ? "mobile" : ""}>
       <div className="gmap_canvas">
         <iframe
           className="gmap_iframe"
@@ -13,7 +13,6 @@ export default function () {
           marginWidth="0"
           src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=O'zbekiston davlat tabiat muzeyi&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
         ></iframe>
-        <a href="https://formatjson.org/">format json</a>
       </div>
     </StyledMapp>
   );
@@ -34,6 +33,18 @@ const StyledMapp = styled.div`
       width: 100% !important;
       height: 540px !important;
       border-radius: 40px;
+    }
+  }
+
+  &.mobile {
+    height: 100vh !important;
+
+    .gmap_canvas {
+      height: 100vh !important;
+
+      .gmap_iframe {
+        height: 100vh !important;
+      }
     }
   }
 

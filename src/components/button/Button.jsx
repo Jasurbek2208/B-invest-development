@@ -1,9 +1,20 @@
 import React from "react";
 import styled from "styled-components";
 
-export default function Button({ children, width, bg = false, style = "" }) {
+export default function Button({
+  children,
+  filter,
+  width,
+  bg = false,
+  style = "",
+  onClick,
+}) {
   return (
-    <StyledButton className={bg ? "on" : "off"} style={{ width: `${width ? width : "auto"}`, padding: style }}>
+    <StyledButton
+      className={(filter ? "filter-btn " : "") + (bg ? "on" : "off")}
+      style={{ width: `${width ? width : "auto"}`, padding: style }}
+      onClick={onClick}
+    >
       {children}
     </StyledButton>
   );
@@ -38,5 +49,23 @@ const StyledButton = styled.button`
 
   @media (max-width: 500px) {
     width: 100%;
+  }
+
+  &.filter-btn {
+    padding: 6px 10px;
+    background: #960000;
+    border: 2px solid #960000;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 19px;
+    color: #fff;
+
+    &:hover,
+    &:focus {
+      outline: none;
+      color: #960000;
+      background-color: #fff;
+    }
   }
 `;

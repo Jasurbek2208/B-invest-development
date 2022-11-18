@@ -324,6 +324,8 @@ const StyledAboutPage = styled.div`
         }
 
         .right {
+          width: 100%;
+
           .card-form {
             h5 {
               max-width: 210px;

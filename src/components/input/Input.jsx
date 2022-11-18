@@ -13,7 +13,19 @@ export default function Input({
       <label htmlFor="" style={{ color: labelColor ? "#402E32" : "#fff" }}>
         {label}
       </label>
-      <input type={type} onChange={onChange} placeholder={placeholder} />
+      {type === "tel" ? (
+        <input
+          type={type}
+          onChange={(e) => {
+            if (e.target.value.length !== 14) {
+              onChange();
+            }
+          }}
+          placeholder={placeholder}
+        />
+      ) : (
+        <input type={type} onChange={onChange} placeholder={placeholder} />
+      )}
     </StyledInput>
   );
 }

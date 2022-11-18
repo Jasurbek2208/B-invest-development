@@ -1,8 +1,11 @@
-import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+
+// Images
+import russia from "../../assets/icons/russian-bayroq.png";
+import uzbekistan from "../../assets/icons/uzbekistan-bayroq.png";
+import english from "../../assets/icons/unitedKingdom-bayroq.png";
 
 // Components
 import Button from "../button/Button";
@@ -10,14 +13,18 @@ import Select from "../select/Select";
 
 export default function Navbar({ setIsWrap }) {
   const [isOpen, setIsOpen] = useState(false);
-  const list = ["Ру", "Eng", "Uz"];
+  const list = [
+    { name: "Ру", img: russia },
+    { name: "Eng", img: english },
+    { name: "Uz", img: uzbekistan },
+  ];
 
   useEffect(() => {
     isOpen ? setIsWrap(true) : setIsWrap(false);
   }, [isOpen]);
 
   return (
-    <StyledNavbar>
+    <StyledNavbar className={isOpen ? " On " : ""}>
       <Link to="home">
         <i className="icon page-logo"></i>
       </Link>
@@ -125,13 +132,16 @@ const StyledNavbar = styled.nav`
   @media (max-width: 800px) {
     position: absolute;
     width: 100%;
-    height: 100%;
     z-index: 10;
     align-items: flex-start;
     border-radius: 0px;
     background-color: #fff0;
     overflow-x: hidden;
     overflow-y: hidden;
+
+    &.On {
+      height: 100%;
+    }
 
     .page-logo {
       width: 155px;
@@ -158,8 +168,8 @@ const StyledNavbar = styled.nav`
       height: 100vh;
       flex-direction: column;
       justify-content: center;
-      background-color: #d7b56d;
-      transition: 300ms ease-in-out;
+      background: #fff0;
+      transition: all 300ms ease-in-out, background 0ms;
 
       .list {
         position: relative;
@@ -187,6 +197,7 @@ const StyledNavbar = styled.nav`
 
       &.On {
         right: 0px;
+        background: #d7b56d;
       }
     }
   }

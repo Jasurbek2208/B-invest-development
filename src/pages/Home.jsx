@@ -17,13 +17,14 @@ export default function Home() {
   const [isWrap, setIsWrap] = useState(false);
 
   return (
-    <StyledHomePage className={isWrap ? "wrap" : ""}>
+    <StyledHomePage>
+      <div className={(isWrap ? "wrap " : "") + "content-wrap__wrapper"}></div>
       <div className="container mediaContainer">
         <Navbar setIsWrap={setIsWrap} />
         <Header />
       </div>
       <div className="container">
-        <HomeSelect />
+        <HomeSelect setIsWrap={setIsWrap} />
         <ProjectsPage />
         <AboutPage />
         <NewsPage />
@@ -38,13 +39,22 @@ export default function Home() {
 }
 
 const StyledHomePage = styled.div`
+  position: relative;
   padding: 30px 0px;
 
-  &.wrap {
-    height: 100vh;
-    overflow-x: auto;
-    overflow-y: hidden;
-    padding-bottom: 0px;
+  .content-wrap__wrapper {
+    display: none;
+
+    &.wrap {
+      display: flex;
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      background: none;
+      z-index: 10;
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
   }
 
   @media (max-width: 800px) {

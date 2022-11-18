@@ -1,17 +1,15 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
-export default function InputRange({ label, labelColor, list }) {
+export default function InputRange({ label, labelColor, list, minDefValue }) {
   const [firstRangeValue, setFirstRangeValue] = useState(list[0].min);
   const [secondRangeValue, setSecondRangeValue] = useState(list[1].max);
 
-  function valueWatcher() {
-    if (firstRangeValue > secondRangeValue)
-      setSecondRangeValue(firstRangeValue);
-  }
-
   useEffect(() => {
-    valueWatcher();
+    let progress = document.querySelector(".progress-line");
+    let input = document.querySelectorAll("input");
+
+    // progress.style.left = input[0].value + "px";
   }, [firstRangeValue, secondRangeValue]);
 
   return (
@@ -43,14 +41,19 @@ export default function InputRange({ label, labelColor, list }) {
         </p>
       </output>
       <div className="inputs__wrapper">
+        <div className="progress-line"></div>
         <input
           type="range"
           min={list[0].min}
           max={list[1].max}
           value={firstRangeValue}
           onChange={(e) => {
-            setFirstRangeValue(e.target.value);
-            valueWatcher();
+            if (
+              !(Number(secondRangeValue - Number(e.target.value)) < minDefValue)
+            ) {
+              setFirstRangeValue(e.target.value);
+              console.log("kirdi !");
+            }
           }}
         ></input>
         <input
@@ -58,7 +61,14 @@ export default function InputRange({ label, labelColor, list }) {
           min={list[0].min}
           max={list[1].max}
           value={secondRangeValue}
-          onChange={(e) => setSecondRangeValue(e.target.value)}
+          onChange={(e) => {
+            if (
+              !(Number(e.target.value - Number(firstRangeValue)) < minDefValue)
+            ) {
+              setSecondRangeValue(e.target.value);
+              console.log("kirdi !");
+            }
+          }}
         ></input>
       </div>
     </StyledInputRange>
@@ -67,6 +77,7 @@ export default function InputRange({ label, labelColor, list }) {
 
 const StyledInputRange = styled.div`
   position: relative;
+  width: 100%;
 
   .rangevalue__wrapper {
     padding: 17px 18px;
@@ -76,6 +87,7 @@ const StyledInputRange = styled.div`
     width: 220px;
     border-radius: 12px;
     background: #f5f5f7;
+    width: 100%;
 
     p {
       font-size: 14px;
@@ -91,19 +103,35 @@ const StyledInputRange = styled.div`
     }
   }
 
+  .inputs__wrapper {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+
+    .progress-line {
+      position: absolute;
+      bottom: 0px;
+      left: 0px;
+      width: 100%;
+      height: 2px;
+      background: #d7b56d;
+      /* background: red; */
+    }
+  }
+
   input {
     position: absolute;
     bottom: 0px;
     left: 0px;
-    -webkit-appearance: none;
-    width: 110px;
+    width: 100%;
     height: 0px;
-    background: rgba(255, 255, 255, 0.6);
-    border-radius: 5px;
-    border: 2px solid #d7b56d;
-    background-image: linear-gradient(#ff4500, #ff4500);
+    background: none;
+    pointer-events: none;
+    /* background-image: linear-gradient(#ff4500, #ff4500);
     background-size: 100% 100%;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; */
+    -webkit-appearance: none;
 
     &:focus {
       outline: none;
@@ -114,13 +142,14 @@ const StyledInputRange = styled.div`
     }
 
     &::-webkit-slider-thumb {
-      -webkit-appearance: none;
+      cursor: ew-resize;
+      pointer-events: auto;
       height: 16px;
       width: 16px;
       border-radius: 100%;
       background: #d7b56d;
-      cursor: ew-resize;
       box-shadow: 0 0 2px 0 #555;
+      -webkit-appearance: none;
       transition: background 0.3s ease-in-out;
 
       &:hover {
@@ -128,9 +157,24 @@ const StyledInputRange = styled.div`
       }
     }
 
-    &:last-of-type {
+    &::-moz-slider-thumb {
+      cursor: ew-resize;
+      height: 16px;
+      width: 16px;
+      border-radius: 100%;
+      background: #d7b56d;
+      box-shadow: 0 0 2px 0 #555;
+      -moz-appearance: none;
+      transition: background 0.3s ease-in-out;
+
+      &:hover {
+        background: #be9e58;
+      }
+    }
+
+    /* &:last-of-type {
       left: 0%;
       transform: translateX(100%);
-    }
+    } */
   }
 `;
