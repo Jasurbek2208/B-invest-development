@@ -1,0 +1,67 @@
+.icon {
+  cursor: pointer;
+  display: inline-block;
+  min-width: 28px;
+  min-height: 28px;
+  color: #fff !important;
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+  mask-size: contain;
+  -webkit-mask-size: contain;
+  mask-position: center;
+  -webkit-mask-position: center;
+}
+
+.icon.comment {
+  mask-image: url("../icons/comment-discussion.svg");
+  -webkit-mask-image: url("../icons/comment-discussion.svg");
+}
+
+.icon.telegram {
+  mask-image: url("../icons/telegram.svg");
+  -webkit-mask-image: url("../icons/telegram.svg");
+}
+
+.icon.tel {
+  mask-image: url("../icons/Call.svg");
+  -webkit-mask-image: url("../icons/Call.svg");
+}
+
+.icon.videoPlay {
+  color: #d7b56d !important;
+  background: #d7b56d !important;
+  mask-image: url("../icons/videoPlay.svg");
+  -webkit-mask-image: url("../icons/videoPlay.svg");
+}
+
+.icon.page-logo {
+  width: 160px;
+  height: 46px;
+  background: #d7b56d;
+  mask-image: url("../logo/logo.svg");
+  -webkit-mask-image: url("../logo/logo.svg");
+}
+
+.icon.tgBorder {
+  background: #d8d8d8 !important;
+  mask-image: url("../icons/tgBorder.svg");
+  -webkit-mask-image: url("../icons/tgBorder.svg");
+}
+
+.icon.icon-instagram {
+  background: #402e32;
+  mask-image: url("../icons/instagram.svg");
+  -webkit-mask-image: url("../icons/instagram.svg");
+}
+
+.icon.icon-facebook {
+  background: #402e32;
+  mask-image: url("../icons/facebook.svg");
+  -webkit-mask-image: url("../icons/facebook.svg");
+}
+
+.icon.icon-telegram {
+  background: #402e32;
+  mask-image: url("../icons/telegram-footer.svg");
+  -webkit-mask-image: url("../icons/telegram-footer.svg");
+}
