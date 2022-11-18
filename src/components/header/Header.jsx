@@ -1,23 +1,69 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 // components
 import Button from "../button/Button";
 
-// img
+// Images
+import caruselmg1 from "../../assets/img/carusel-img-1.jpg";
+import caruselmg2 from "../../assets/img/carusel-img-2.jpg";
+import caruselmg3 from "../../assets/img/carusel-img-3.jpg";
+import caruselmg4 from "../../assets/img/backgroundImg.png";
+import caruselmg5 from "../../assets/img/carusel-img-5.jpg";
+import caruselmg6 from "../../assets/img/carusel-img-6.jpg";
+
+// icons
 import leftArrow from "../../assets/icons/Arrow - Left 2.png";
 import rightArrow from "../../assets/icons/Arrow - Right 2.png";
-import bg from "../../assets/img/backgroundImg.png";
 import call from "../../assets/icons/Call.svg";
 import comment from "../../assets/icons/comment-discussion.svg";
 import telegram from "../../assets/icons/telegram.svg";
+import { useEffect } from "react";
 
 export default function Header() {
+  const imgArr = [
+    caruselmg4,
+    caruselmg1,
+    caruselmg2,
+    caruselmg3,
+    caruselmg5,
+    caruselmg6,
+  ];
+  const [currImg, setCurrImg] = useState(imgArr[0]);
+  const [carruselCount, setCarruselCount] = useState(1);
+  let localNum = 0;
+
+  function carruselRight() {
+    imgArr.forEach((i, idx) => {
+      if (currImg === i) {
+        setCurrImg(imgArr[imgArr.length === idx + 1 ? 0 : idx + 1]);
+        setCarruselCount((imgArr.length === idx + 1 ? 0 : idx + 1) + 1);
+      }
+    });
+  }
+
+  function carruselLeft() {
+    imgArr.forEach((i, idx) => {
+      if (currImg === i) {
+        setCurrImg(imgArr[0 === idx ? imgArr.length - 1 : idx - 1]);
+        setCarruselCount((0 === idx ? imgArr.length - 1 : idx - 1) + 1);
+      }
+    });
+  }
+
+  useEffect(() => {
+    localNum += 1;
+    if (localNum === 1)
+      setInterval(function () {
+        carruselRight();
+      }, 10000);
+  }, []);
+
   return (
     <StyledHeader>
       <div
         style={{
-          backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 57.17%), url(${bg})`,
+          backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 57.17%), url(${currImg})`,
         }}
       >
         <div className="right__wrapper">
@@ -28,12 +74,12 @@ export default function Header() {
         </div>
 
         <div className="center">
-          <p>01/06</p>
+          <p>0{carruselCount}/06</p>
         </div>
 
         <div className="left__wrapper">
-          <img src={leftArrow} alt="leftArrow" />
-          <img src={rightArrow} alt="rightArrow" />
+          <img src={leftArrow} alt="leftArrow" onClick={carruselLeft} />
+          <img src={rightArrow} alt="rightArrow" onClick={carruselRight} />
         </div>
         <div className="fixed-social-icons">
           <div
@@ -69,7 +115,6 @@ const StyledHeader = styled.header`
     background-position: center;
     background-size: cover;
     border-radius: 40px;
-    /* transform: matrix(-1, 0, 0, 1, 0, 0); */
 
     .right__wrapper {
       max-width: 686px;
@@ -131,9 +176,24 @@ const StyledHeader = styled.header`
         }
       }
     }
+    @media (max-width: 1120px) {
+      .fixed-social-icons {
+        right: -15px;
+
+        .icon {
+          width: 36px;
+          height: 36px;
+
+          &.comment {
+            width: 50px;
+            height: 50px;
+          }
+        }
+      }
+    }
   }
 
-  @media (max-width: 800px) {
+  @media (max-width: 820px) {
     padding: 0px;
     margin: 0px;
 

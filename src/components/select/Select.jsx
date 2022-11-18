@@ -44,7 +44,7 @@ export default function Select({ label, labelColor, bg, list, lang = false }) {
             }}
           >
             <img src={selectValue.img} alt={selectValue.name} />
-            <p>{selectValue.name}</p>
+            <p className="lang-name">{selectValue.name}</p>
           </div>
         )}
         <ul
@@ -96,7 +96,6 @@ const StyledSelect = styled.div`
   border-radius: 12px;
   -webkit-appearance: none;
   -moz-appearance: none;
-  /* border: 1px solid red; */
 
   .select-options {
     position: absolute;
@@ -108,7 +107,6 @@ const StyledSelect = styled.div`
     background: #fff;
     border-radius: 6px;
     z-index: 50;
-    /* border: 1px solid red; */
     transform: scale(0);
     transition: opacity 1s, top 300ms;
 
@@ -171,5 +169,11 @@ const StyledSelect = styled.div`
 
   &:focus {
     outline: 2px solid #d7b56d;
+  }
+
+  @media (max-width: 820px) {
+    .lang-name {
+      color: #fff;
+    }
   }
 `;

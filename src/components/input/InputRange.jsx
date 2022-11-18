@@ -35,8 +35,10 @@ export default function InputRange({ label, labelColor, list, minDefValue }) {
         <span></span>
         <p>
           До{" "}
-          {secondRangeValue == list[1].max
-            ? "1 " + list[1].name
+          {list[1].name === "млрд"
+            ? secondRangeValue == list[1].max
+              ? "1 " + list[1].name
+              : secondRangeValue + " " + list[0].name
             : secondRangeValue + " " + list[0].name}
         </p>
       </output>

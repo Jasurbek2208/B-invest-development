@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import styled from "styled-components";
 
 // Components
@@ -10,7 +10,8 @@ import formCardImg from "../../assets/img/form-cardImg.png";
 import Input from "../input/Input";
 
 export default function AboutPage() {
-  const [isPlay, setIsPlay] = useState(true);
+  const vidRef = useRef(null);
+  const [isPlay, setIsPlay] = useState(false);
 
   return (
     <StyledAboutPage>
@@ -23,21 +24,24 @@ export default function AboutPage() {
           <CompanyStaticsCard h1="6+" p="Лет на рынке" />
         </div>
         <div className="bottom">
-          {/* <video
-            onPlay={isPlay}
-            src="https://youtu.be/vJz8QzO1VzQ"
-            autoPlay
-            controls
-          ></video> */}
-          <iframe
+          <video
             className="video"
-            src="https://www.youtube.com/embed/vJz8QzO1VzQ"
-            title="YouTube video player"
-            frameBorder="0"
-            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          ></iframe>
-          <div className="video-play" onClick={() => setIsPlay((p) => !p)}>
+            controls
+            ref={vidRef}
+            onClick={() => setIsPlay((p) => !p)}
+          >
+            <source
+              src={require("../../assets/img/backVideo.mp4")}
+              type="video/mp4"
+            ></source>
+          </video>
+          <div
+            className={(isPlay ? "On " : "") + "video-play"}
+            onClick={() => {
+              vidRef.current.play();
+              setIsPlay(true);
+            }}
+          >
             <div className="icon videoPlay"></div>
           </div>
         </div>
@@ -162,6 +166,15 @@ const StyledAboutPage = styled.div`
         transform: translate(-50%, -50%);
         background: rgba(255, 255, 255, 0.9);
         border-radius: 12px;
+        transition: 400ms ease-in-out;
+
+        &.On {
+          opacity: 0;
+        }
+
+        &:hover {
+          opacity: 1;
+        }
       }
     }
   }
@@ -386,6 +399,26 @@ const StyledAboutPage = styled.div`
 
           .card {
             min-width: 100% !important;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 500px) {
+    .content__wrapper {
+      .bottom {
+        .video {
+          min-height: 230px;
+        }
+
+        .video-play {
+          width: 50px;
+          height: 50px;
+
+          .videoPlay {
+            width: 18px;
+            height: 21px;
           }
         }
       }

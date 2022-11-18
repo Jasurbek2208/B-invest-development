@@ -57,7 +57,7 @@ const StyledHomePage = styled.div`
     }
   }
 
-  @media (max-width: 800px) {
+  @media (max-width: 820px) {
     margin: 0px;
     padding: 0px;
     padding-bottom: 30px;

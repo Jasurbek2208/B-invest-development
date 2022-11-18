@@ -33,13 +33,15 @@ export default function Navbar({ setIsWrap }) {
         <li className="list">Новости</li>
         <li className="list">Акции</li>
         <li className="list">О нас</li>
+        <div className="select__wrapper">
+          <Select lang list={list} />
+        </div>
       </ul>
       <div
         className={(isOpen ? "On " : "") + "navClose"}
         onClick={() => setIsOpen(false)}
       ></div>
       <div className="right__wrapper">
-        <Select lang list={list} />
         <div className="tel">
           <p>+ 998 (71) 671-2275</p>
           <a href="tel:+ 998 (71) 671-2275">Заказать звонок</a>
@@ -80,6 +82,10 @@ const StyledNavbar = styled.nav`
       line-height: 25px;
       color: #402e32;
     }
+
+    .select__wrapper {
+      max-width: 100px;
+    }
   }
 
   .right__wrapper {
@@ -95,6 +101,21 @@ const StyledNavbar = styled.nav`
   @media (max-width: 1150px) {
     .right__wrapper {
       display: none;
+    }
+  }
+
+  @media (max-width: 820px) {
+    position: absolute;
+    width: 100%;
+    z-index: 10;
+    align-items: flex-start;
+    border-radius: 0px;
+    background-color: #fff0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+
+    &.On {
+      height: 100%;
     }
 
     .btn-menu {
@@ -126,21 +147,6 @@ const StyledNavbar = styled.nav`
           top: 14px;
         }
       }
-    }
-  }
-
-  @media (max-width: 800px) {
-    position: absolute;
-    width: 100%;
-    z-index: 10;
-    align-items: flex-start;
-    border-radius: 0px;
-    background-color: #fff0;
-    overflow-x: hidden;
-    overflow-y: hidden;
-
-    &.On {
-      height: 100%;
     }
 
     .page-logo {
