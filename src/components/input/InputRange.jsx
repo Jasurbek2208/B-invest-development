@@ -1,16 +1,25 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
-export default function InputRange({ label, labelColor, list, minDefValue }) {
+export default function InputRange({
+  defValue,
+  defReset,
+  label,
+  labelColor,
+  list,
+  minDefValue,
+}) {
   const [firstRangeValue, setFirstRangeValue] = useState(list[0].min);
   const [secondRangeValue, setSecondRangeValue] = useState(list[1].max);
 
   useEffect(() => {
-    let progress = document.querySelector(".progress-line");
-    let input = document.querySelectorAll("input");
+    if (defValue !== "") {
+      setFirstRangeValue(defValue[0].min);
+      setSecondRangeValue(defValue[1].max);
+    }
 
-    // progress.style.left = input[0].value + "px";
-  }, [firstRangeValue, secondRangeValue]);
+    defReset();
+  }, [defValue]);
 
   return (
     <StyledInputRange>
@@ -54,7 +63,6 @@ export default function InputRange({ label, labelColor, list, minDefValue }) {
               !(Number(secondRangeValue - Number(e.target.value)) < minDefValue)
             ) {
               setFirstRangeValue(e.target.value);
-              console.log("kirdi !");
             }
           }}
         ></input>

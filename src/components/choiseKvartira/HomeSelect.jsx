@@ -1,21 +1,44 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
 // Components
+import Map from "../mapLocation/Map";
 import Button from "../button/Button";
 import Select from "../select/Select";
 import InputRange from "../input/InputRange";
-import { useState } from "react";
-import Map from "../mapLocation/Map";
-import { useEffect } from "react";
 
 export default function HomeSelect({ setIsWrap }) {
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const [isMapOpen, setIsMapOpen] = useState(false);
-
-  //
   const list1 = ["Коммерческий", "НеКоммерческий"];
   const list2 = ["Комфорт", "НеКомфорт"];
+
+  //
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isMapOpen, setIsMapOpen] = useState(false);
+  const [firstSelect, setFirstSelect] = useState("");
+  const [secondSelect, setSecondSelect] = useState("");
+  const [firstInputRange, setFirstInputRange] = useState("");
+  const [secondInputRange, setSecondInputRange] = useState("");
+
+  // Reset Form
+  function resetForm() {
+    setFirstSelect(list1[0]);
+    setSecondSelect(list2[0]);
+    setFirstInputRange([
+      { min: 30, name: "м2" },
+      { max: 100, name: "м2" },
+    ]);
+    setSecondInputRange([
+      { min: 500, name: "млн" },
+      { max: 1000, name: "млрд" },
+    ]);
+  }
+
+  function defReset() {
+    setFirstSelect("");
+    setSecondSelect("");
+    setFirstInputRange("");
+    setSecondInputRange("");
+  }
 
   useEffect(() => {
     isSearchOpen || isMapOpen ? setIsWrap(true) : setIsWrap(false);
@@ -32,7 +55,9 @@ export default function HomeSelect({ setIsWrap }) {
         <div className="top">
           <h4>Фильтр</h4>
           <div className="filter-close-btn__wrapper">
-            <Button filter>Сбросить</Button>
+            <Button filter onClick={resetForm}>
+              Сбросить
+            </Button>
             <button
               type="button"
               className="close-btn"
@@ -44,13 +69,27 @@ export default function HomeSelect({ setIsWrap }) {
           </div>
         </div>
         <div className="mob-form-wrapper">
-          <Select labelColor label="Вид жилища" bg={true} list={list1} />
+          <Select
+            defValue={firstSelect}
+            labelColor
+            label="Вид жилища"
+            bg={true}
+            list={list1}
+          />
         </div>
         <div className="mob-form-wrapper">
-          <Select labelColor label="Категория жилищ" bg={true} list={list2} />
+          <Select
+            defValue={secondSelect}
+            labelColor
+            label="Категория жилищ"
+            bg={true}
+            list={list2}
+          />
         </div>
         <div className="mob-form-wrapper">
           <InputRange
+            defReset={defReset}
+            defValue={firstInputRange}
             minDefValue={10}
             labelColor
             label="Площадь"
@@ -62,6 +101,8 @@ export default function HomeSelect({ setIsWrap }) {
         </div>
         <div className="mob-form-wrapper">
           <InputRange
+            defReset={defReset}
+            defValue={secondInputRange}
             minDefValue={100}
             labelColor
             label="Цена"

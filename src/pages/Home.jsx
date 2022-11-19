@@ -17,8 +17,7 @@ export default function Home() {
   const [isWrap, setIsWrap] = useState(false);
 
   return (
-    <StyledHomePage>
-      <div className={(isWrap ? "wrap " : "") + "content-wrap__wrapper"}></div>
+    <StyledHomePage className={isWrap ? " wrap " : ""}>
       <div className="container mediaContainer">
         <Navbar setIsWrap={setIsWrap} />
         <Header />
@@ -42,19 +41,14 @@ const StyledHomePage = styled.div`
   position: relative;
   padding: 30px 0px;
 
-  .content-wrap__wrapper {
-    display: none;
-
-    &.wrap {
-      display: flex;
-      position: fixed;
-      width: 100vw;
-      height: 100vh;
-      background: none;
-      z-index: 10;
-      overflow-x: auto;
-      overflow-y: hidden;
-    }
+  &.wrap {
+    position: fixed;
+    width: 100vw;
+    max-height: 100vh;
+    background: none;
+    z-index: 10;
+    overflow-x: auto;
+    overflow-y: hidden;
   }
 
   @media (max-width: 820px) {

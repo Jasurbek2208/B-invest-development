@@ -33,6 +33,7 @@ export default function FAQ() {
         </div>
         <div className="select__wrapper">
           <Select
+            defValue="Сегодня"
             labelColor
             label="Когда вам позвонить (дата)"
             bg={true}
@@ -41,6 +42,7 @@ export default function FAQ() {
         </div>
         <div className="select__wrapper">
           <Select
+            defValue="Ближайшее"
             labelColor
             label="Когда вам позвонить (время)"
             bg={true}

@@ -1,10 +1,22 @@
 import React from "react";
+import { useEffect } from "react";
 import { useState } from "react";
 import styled from "styled-components";
 
-export default function Select({ label, labelColor, bg, list, lang = false }) {
+export default function Select({
+  defValue,
+  label,
+  labelColor,
+  bg,
+  list,
+  lang = false,
+}) {
   const [isSelectOpen, setIsSelectOpen] = useState(false);
   const [selectValue, setSelectValue] = useState(list[0]);
+
+  useEffect(() => {
+    if (defValue !== "") setSelectValue(defValue);
+  }, [defValue]);
 
   return (
     <div

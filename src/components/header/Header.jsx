@@ -62,9 +62,9 @@ export default function Header() {
     setCarruselCount(newCarruselCount);
   }
 
-  setInterval(function () {
-    carruselRight();
-  }, 10000);
+  // setInterval(function () {
+  //   carruselRight();
+  // }, 10000);
 
   return (
     <StyledHeader>

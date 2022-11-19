@@ -34,7 +34,7 @@ export default function Navbar({ setIsWrap }) {
         <li className="list">Акции</li>
         <li className="list">О нас</li>
         <div className="select__wrapper">
-          <Select lang list={list} />
+          <Select defValue={list[0]} lang list={list} />
         </div>
       </ul>
       <div

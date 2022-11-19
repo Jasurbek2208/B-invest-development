@@ -41,13 +41,13 @@ export default function AboutPage() {
               vidRef.current.paused
                 ? vidRef.current.play()
                 : vidRef.current.pause();
-              setIsPlay(true);
+              setIsPlay((p) => !p);
             }}
             onTouchMove={() => {
               vidRef.current.paused
                 ? vidRef.current.play()
                 : vidRef.current.pause();
-              setIsPlay(true);
+              setIsPlay((p) => !p);
             }}
           >
             <div className="icon videoPlay"></div>
@@ -171,17 +171,44 @@ const StyledAboutPage = styled.div`
         justify-content: center;
         width: 70px;
         height: 70px;
+        border-radius: 12px;
         transform: translate(-50%, -50%);
         background: rgba(255, 255, 255, 0.9);
-        border-radius: 12px;
         transition: 400ms ease-in-out;
-
-        &.On {
-          opacity: 0;
-        }
 
         &:hover {
           opacity: 1;
+
+          .icon.videoPlay {
+            color: #c5a45c !important;
+            background: #c5a45c !important;
+          }
+        }
+
+        &.On {
+          opacity: 0;
+
+          .icon.videoPlay {
+            mask-image: none;
+            -webkit-mask-image: none;
+            background: none !important;
+            border-left: 10px solid #d7b56d !important;
+            border-right: 10px solid #d7b56d !important;
+          }
+
+          &:hover {
+            opacity: 1;
+
+            .icon.videoPlay {
+              color: none;
+              background: none;
+
+              .icon.videoPlay {
+                border-left: 10px solid #c5a45c !important;
+                border-right: 10px solid #c5a45c !important;
+              }
+            }
+          }
         }
       }
     }
