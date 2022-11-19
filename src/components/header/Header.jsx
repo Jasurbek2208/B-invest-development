@@ -18,7 +18,6 @@ import rightArrow from "../../assets/icons/Arrow - Right 2.png";
 import call from "../../assets/icons/Call.svg";
 import comment from "../../assets/icons/comment-discussion.svg";
 import telegram from "../../assets/icons/telegram.svg";
-import { useEffect } from "react";
 
 export default function Header() {
   const imgArr = [
@@ -31,33 +30,41 @@ export default function Header() {
   ];
   const [currImg, setCurrImg] = useState(imgArr[0]);
   const [carruselCount, setCarruselCount] = useState(1);
-  let localNum = 0;
 
   function carruselRight() {
+    let newCurrImg = "";
+    let newCarruselCount = null;
+
     imgArr.forEach((i, idx) => {
       if (currImg === i) {
-        setCurrImg(imgArr[imgArr.length === idx + 1 ? 0 : idx + 1]);
-        setCarruselCount((imgArr.length === idx + 1 ? 0 : idx + 1) + 1);
+        console.log("kirdi !");
+        newCurrImg = imgArr[imgArr.length === idx + 1 ? 0 : idx + 1];
+        newCarruselCount = (imgArr.length === idx + 1 ? 0 : idx + 1) + 1;
       }
     });
+
+    setCurrImg(newCurrImg);
+    setCarruselCount(newCarruselCount);
   }
 
   function carruselLeft() {
+    let newCurrImg = "";
+    let newCarruselCount = null;
+
     imgArr.forEach((i, idx) => {
       if (currImg === i) {
-        setCurrImg(imgArr[0 === idx ? imgArr.length - 1 : idx - 1]);
-        setCarruselCount((0 === idx ? imgArr.length - 1 : idx - 1) + 1);
+        newCurrImg = imgArr[0 === idx ? imgArr.length - 1 : idx - 1];
+        newCarruselCount = (0 === idx ? imgArr.length - 1 : idx - 1) + 1;
       }
     });
+
+    setCurrImg(newCurrImg);
+    setCarruselCount(newCarruselCount);
   }
 
-  useEffect(() => {
-    localNum += 1;
-    if (localNum === 1)
-      setInterval(function () {
-        carruselRight();
-      }, 10000);
-  }, []);
+  setInterval(function () {
+    carruselRight();
+  }, 10000);
 
   return (
     <StyledHeader>

@@ -38,7 +38,15 @@ export default function AboutPage() {
           <div
             className={(isPlay ? "On " : "") + "video-play"}
             onClick={() => {
-              vidRef.current.play();
+              vidRef.current.paused
+                ? vidRef.current.play()
+                : vidRef.current.pause();
+              setIsPlay(true);
+            }}
+            onTouchMove={() => {
+              vidRef.current.paused
+                ? vidRef.current.play()
+                : vidRef.current.pause();
               setIsPlay(true);
             }}
           >
