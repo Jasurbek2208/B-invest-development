@@ -5,6 +5,7 @@ import styled from "styled-components";
 import CompanyStaticsCard from "../companyStaticsCard/CompanyStaticsCard";
 
 // Images
+import videoThumbnail from "../../assets/img/videoThumbnail.png";
 import stockCardImg from "../../assets/img/stockCardImg.png";
 import formCardImg from "../../assets/img/form-cardImg.png";
 import Input from "../input/Input";
@@ -26,12 +27,13 @@ export default function AboutPage() {
         <div className="bottom">
           <video
             className="video"
+            poster={videoThumbnail}
             controls
             ref={vidRef}
             onClick={() => setIsPlay((p) => !p)}
           >
             <source
-              src={require("../../assets/img/backVideo.mp4")}
+              src={require("../../assets/video/backVideo.mp4")}
               type="video/mp4"
             ></source>
           </video>
